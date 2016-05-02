@@ -1,0 +1,142 @@
+body{
+	width:100%;
+  background-color:#32d1e6;
+}
+
+h1, h2{
+   color:white;
+    font-family:abril fatface;
+    text-align:center;
+}
+#navbar{
+
+    width: 100%;
+
+}
+
+#navbar li{
+  display: inline;
+	padding-left:1%;
+  padding-right:1%;
+  /*padding-top:5px;
+  padding-bottom:20px;*/
+  font-family:sans-serif;
+  font-size:140%;
+
+}
+#webPage li{
+  display:inline;
+}
+
+.currentPage{
+  /*background-color:#FF8B1D;*/
+  padding-bottom: 30px
+}
+
+.otherPage{
+  /*background-color:#17e701;*/
+}
+
+.headerSection{
+	text-align:center;
+  width: 95%;
+  background-color:#302f30;
+  display:center;
+  border:10px;
+  border-style:outset;
+}
+
+a:link{
+  color:white;
+}
+
+a:hover{
+  color:#33e6aa;
+}
+
+a:visited{
+  color:white;
+}
+
+a:active{
+  color:white;
+}
+
+.loader {
+  /*background-color:yellow;*/
+  /*border: 20px solid blue;*/
+  /*border-radius: 20px;*/
+  /*border-top: 20px solid green;*/
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 6s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loaderSection{
+    padding-left:5%;
+    padding-top:5%;
+    display:inline;
+}
+
+#newsSection{
+  float:left;
+  width:30%;
+  background-color:#302f30;
+  height:90%;
+}
+
+.newsSectionHeading{
+  text-align:center;
+  border: 10px;
+  border-style:outset;
+  font-size: 200%;
+}
+
+#mainSection{
+  float:left;
+  width:65%;
+}
+
+#newsText{
+  color:white;
+  padding-left:2%;
+  padding-right:2%;
+  font-size: 125%;
+}
+
+#mainText{
+  
+  padding-left:5%;
+  font-size:120%;
+}
+
+.mainSectionHeading{
+  font-size:200%;
+}
+
+.rotate90{
+  -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#image{
+  align:right;
+}
+
+#Assignments313{
+    text-align:center;
+}
