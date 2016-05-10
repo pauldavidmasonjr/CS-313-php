@@ -1,0 +1,48 @@
+<?php
+		echo $_SESSION['userName'];
+?>
+
+<html>
+<header>
+	<title>Survey</title>
+	<link rel="stylesheet" type="text/css" href="pageStyles.css">
+</header>
+<body>
+	<h1>Survey</h1>
+
+	<h2 style="color:green">You have not taken the survey yet! Create a user name and take the survey below</h2>
+	<form action="handleSubmit.php" method="post" style="padding-left:45%">
+		
+
+		<h2 style="text-align:left">Username:</h2>
+		<input type="text" name="userName"></input><br>
+
+		<h2 style="text-align:left">What is your major?</h2>
+		<input type="radio" name="major" value="Computer Science">Computer Science <br>
+
+		<input type="radio" name="major" value="Web and Design">Web and Design <br>
+
+		<input type="radio" name="major" value="Computer Information Technology">Computer Information Technology <br>
+
+		<input type="radio" name="major" value="Computer Engineering">Computer Engineering</input><br>
+
+		<input type="radio" name="major" value="Software Engineering">Software Engineering<br>
+		<br>
+
+		<h2 style="text-align:left">What is your favorite color?</h2>
+		<input type="text" name="favoriteColor"><br>
+		<br>
+
+		<h2 style="text-align:left">What is your favorite sport?</h2>
+		<input type="text" name="favoriteSport"><br>
+		<br>
+
+		<h2 style="text-align:left">What is the craziest thing you have ever done?</h2>
+		<input type="text" name="crazyThing"><br>
+		<br>
+
+		<input type="submit" value="Submit Answers">
+	
+	</form>
+</body>
+</html>
