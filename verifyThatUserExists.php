@@ -7,7 +7,7 @@ $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
 $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
 $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 try{
-	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword); 	
+	$db = new PDO("mysql:host=$dbHost;dbname=managerapp", $dbUser, $dbPassword); 	
 }
 catch (PDOException $ex){
 	echo 'Error!: ' . $ex->getMessage();
@@ -16,21 +16,22 @@ catch (PDOException $ex){
 
 
 $userName = $_POST['userName'];
-echo 'User Name: ' . $userName;
+echo 'User Name: ' . $userName . '<br>';
 $_SESSION["userName"] = $userName;
 //echo 'SessionVariable: ' . $_SESSION["userName"];
 
 $password = $_POST['password'];
-echo 'Password: ' . $password;
+//echo 'Password: ' . $password;
 echo'<br><br>';
 
 foreach($db->query('SELECT user_name FROM user') as $row){
-		$dataBaseUser = $row['user_name']; 
+		$dataBaseUser = $row['user_name'];
+		echo "username from database: $dataBaseUser <br>"; 
 		echo 'in the query';
 		if($userName == $dataBaseUser){
 			header('Location: managerAppMain.php');
+			die();
 		}
 	}
-	echo 'no user found display create user account here';
-
+	header('Location: createComplex.php');
 ?>

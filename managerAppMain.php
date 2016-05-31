@@ -1,14 +1,10 @@
 <?php
-session_start();
-?>
-
-<?php
 $dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST'); 
 $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
 $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
 $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 try{
-	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword); 	
+	$db = new PDO("mysql:host=$dbHost;dbname=managerapp", $dbUser, $dbPassword); 	
 }
 catch (PDOException $ex){
 	echo 'Error!: ' . $ex->getMessage();
@@ -25,8 +21,7 @@ $complexId;
 
 //complex variables
 $complexName;
-$complexStNum;
-$complexStName;
+$complexStAddress;
 $complexCity;
 $complexState;
 $complexZip;
@@ -59,13 +54,12 @@ $tenantPhoneNumber;
 		<h2>Your complex</h2>
 
 			<?php
-				foreach($db->query('SELECT id, name, street_num, street_name, city, state, zip FROM complex') as $row){
+				foreach($db->query('SELECT id, name, street_address, city, state, zip FROM complex') as $row){
 				$complex = $row['id']; 
 		
 				if($complexId == $complex){
 					$complexName = $row["name"];
-					$complexStNum = $row["street_num"];
-					$complexStName = $row["street_name"];
+					$complexStAddress = $row["street_address"];
 					$complexCity = $row["city"];
 					$complexState = $row["state"];
 					$complexZip = $row["zip"];
@@ -73,8 +67,10 @@ $tenantPhoneNumber;
 			}
 
 			echo 'Complex Name: ' . $complexName . '<br>';
-			echo 'Address: ' . $complexStNum . ' ' . $complexStName . ', ' . $complexCity . ' ' . $complexState . ' ' . $complexZip;
+			echo 'Address: ' . $complexStAddress . ', ' . $complexCity . ' ' . $complexState . ' ' . $complexZip;
 			?>
+
+		<p><a href="viewTenants.php">View List of your Tenants</a><a href="addTenantToComplex.php">Add Tenant to Complex</a></p>
 
 		<h2>Action Options</h2>
 
@@ -107,6 +103,7 @@ $tenantPhoneNumber;
 
 					<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
 
+					<p>Apartment #:</p>
 					<input type="text" name="apartmentNumber"></input>
 
 				<input type="submit" value="Send Message">
@@ -118,7 +115,9 @@ $tenantPhoneNumber;
 
 					<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
 
+					<p>First Name:</p>
 					<input type="text" name="firstName"></input>
+					<p>Last Name:</p>
 					<input type="text" name="lastName"></input>
 
 				<input type="submit" value="Send Message">

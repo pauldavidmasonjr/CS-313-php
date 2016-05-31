@@ -4,7 +4,7 @@ $dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT');
 $dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
 $dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 try{
-	$db = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword); 	
+	$db = new PDO("mysql:host=$dbHost;dbname=managerapp", $dbUser, $dbPassword); 	
 }
 catch (PDOException $ex){
 	echo 'Error!: ' . $ex->getMessage();

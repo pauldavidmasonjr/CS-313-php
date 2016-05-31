@@ -18,5 +18,7 @@
 
 		<input type="submit" value="Log In">
 	</form>
+
+	<p><a href="createComplex.php">Create an account and complex</p>
 	</body>
 </html>
