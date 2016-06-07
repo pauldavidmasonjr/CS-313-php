@@ -11,6 +11,7 @@ catch (PDOException $ex){
 	die();
 }
 
+
 //trying to get session variables
 //echo 'Session Var: ' . $_SESSION["userName"];
 $userName = $_SESSION["userName"];
@@ -34,6 +35,7 @@ $tenantPhoneNumber;
 <html>
 	<head>
 		<title>Manager App Main</title>
+		<link rel="stylesheet" type="text/css" href="pageStyles.css">
 	</head>
 	<body>
 		<?php
@@ -66,61 +68,71 @@ $tenantPhoneNumber;
 				}
 			}
 
-			echo 'Complex Name: ' . $complexName . '<br>';
-			echo 'Address: ' . $complexStAddress . ', ' . $complexCity . ' ' . $complexState . ' ' . $complexZip;
+			echo "<h2>Complex Name: $complexName </h2>";
+			echo "<p style='text-align: center'>Address: $complexStAddress, $complexCity $complexState $complexZip</p>";
 			?>
 
-		<p><a href="viewTenants.php">View List of your Tenants</a><a href="addTenantToComplex.php">Add Tenant to Complex</a></p>
+		<p style='text-align: center'><a href="viewTenants.php">View List of your Tenants</a></p>
+		<p style='text-align: center'><a href="addTenantToComplex.php">Add Tenant to Complex</a></p>
 
 		<h2>Action Options</h2>
 
-		<h3>Send message to entire complex</h3>
+		<h3 style='text-align:center'>Send message to entire complex</h3>
 			<form action="entireComplexMessage.php" method="post" id="forms">
 				<h2>Enter your message here</h2>
 
-					<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br><br>
+					<center>
+						<TEXTAREA STYLE="text-align:center" NAME="message" COLS=40 ROWS=6></TEXTAREA><br><br>
 
-				<input type="submit" value="Send Message">
+						<input type="submit" value="Send Message">
+					</center>
 			</form>
 
-		<h3>Send message to just one floor</h3>
+		<h3 style='text-align:center'>Send message to just one floor</h3>
 		<form action="messageToOneFloor.php" method="post" id="forms">
 				<h2>Enter your message here</h2>
 
-					<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
+					<center>
+						<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
 
-					<input type="radio" name="floor" value="1">1st Floor<br>
-  					<input type="radio" name="floor" value="2">2nd Floor<br>
-  					<input type="radio" name="floor" value="3">3rd Floor<br>
-  					<input type="radio" name="floor" value="4">4th Floor<br><br>
+						<input type="radio" name="floor" value="1">1st Floor<br>
+	  					<input type="radio" name="floor" value="2">2nd Floor<br>
+  						<input type="radio" name="floor" value="3">3rd Floor<br>
+  						<input type="radio" name="floor" value="4">4th Floor<br><br>
 
-				<input type="submit" value="Send Message">
+						<input type="submit" value="Send Message">
+					</center>
 			</form>
 
-		<h3>Send Message to just one apartment</h3>
+		<h3 style='text-align:center'>Send Message to just one apartment</h3>
 		<form action="messageToOneApartment.php" method="post" id="forms">
 				<h2>Enter your message here</h2>
 
-					<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
+					<center>
+						<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
 
-					<p>Apartment #:</p>
-					<input type="text" name="apartmentNumber"></input>
+						<p style='text-align: center'>Apartment #:</p>
+						<input type="text" name="apartmentNumber"></input>
 
-				<input type="submit" value="Send Message">
+						<input type="submit" value="Send Message">
+					</center>
 			</form>
 
-		<h3>Send message to just one tenant</h3>
+		<h3 style='text-align:center'>Send message to just one tenant</h3>
 		<form action="messageToOneTenant.php" method="post" id="forms">
 				<h2>Enter your message here</h2>
 
-					<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
+					<center>
+						<TEXTAREA NAME="message" COLS=40 ROWS=6></TEXTAREA><br>
 
-					<p>First Name:</p>
-					<input type="text" name="firstName"></input>
-					<p>Last Name:</p>
-					<input type="text" name="lastName"></input>
+						<p style='text-align: center'>First Name:</p>
+						<input type="text" name="firstName"></input>
+						<p style='text-align: center'>Last Name:</p>
+						<input style='text-align: center' type="text" name="lastName"></input><br><br>
 
-				<input type="submit" value="Send Message">
+
+						<input type="submit" value="Send Message">
+					</center>
 			</form>
 	</body>
 </html>

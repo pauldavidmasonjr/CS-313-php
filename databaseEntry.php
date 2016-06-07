@@ -11,6 +11,7 @@ catch (PDOException $ex){
 	die();
 }
 
+
 //Variables from previous page
 $name = $_POST["name"];
 $userName = $_POST["userName"];

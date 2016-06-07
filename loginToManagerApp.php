@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="pageStyles.css">
 	</head>
 	<body>
 		<h1>Welcome to the Apartment Manager</h1>
@@ -19,6 +20,5 @@
 		<input type="submit" value="Log In">
 	</form>
 
-	<p><a href="createComplex.php">Create an account and complex</p>
 	</body>
 </html>

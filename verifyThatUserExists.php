@@ -15,8 +15,9 @@ catch (PDOException $ex){
 }
 
 
+
 $userName = $_POST['userName'];
-echo 'User Name: ' . $userName . '<br>';
+//echo 'User Name: ' . $userName . '<br>';
 $_SESSION["userName"] = $userName;
 //echo 'SessionVariable: ' . $_SESSION["userName"];
 
@@ -26,12 +27,13 @@ echo'<br><br>';
 
 foreach($db->query('SELECT user_name FROM user') as $row){
 		$dataBaseUser = $row['user_name'];
-		echo "username from database: $dataBaseUser <br>"; 
-		echo 'in the query';
+		//echo "username from database: $dataBaseUser <br>"; 
+		//echo 'in the query';
 		if($userName == $dataBaseUser){
 			header('Location: managerAppMain.php');
 			die();
 		}
 	}
-	header('Location: createComplex.php');
+	//header('Location: createComplex.php');
+	echo "User does not exist. Creating new user not available yet";
 ?>

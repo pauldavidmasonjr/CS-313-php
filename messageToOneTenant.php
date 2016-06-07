@@ -14,7 +14,8 @@ catch (PDOException $ex){
 
 <html>
 <head>
-	<title>Entire Complex message</title>
+	<title>Message to One Tenant</title>
+	<link rel="stylesheet" type="text/css" href="pageStyles.css">
 </head>
 <body>
 	<h1>Message sent to entire complex!</h1>
@@ -23,7 +24,7 @@ catch (PDOException $ex){
 	<?php
 
 	$message = $_POST['message'];
-	echo 'Your message: <br><br>' . $message . '<br><br>'; 
+	echo "<p style='text-align:center'>Your message: <br><br> $message </p><br>"; 
 
 	$tenantFirstName = $_POST['firstName'];
 	$tenantLastName = $_POST['lastName'];
@@ -35,8 +36,11 @@ catch (PDOException $ex){
 					if($databaseFirstName == $tenantFirstName && $databaseLastName == $tenantLastName){
 						$tenantPhoneNumber = $row["phone_number"];
 
-						echo $tenantFirstName . ' ' . $tenantLastName . ' - ' . $tenantPhoneNumber . '<br>';
+						echo "<p style='text-align:center'>Sent To: <br> $tenantFirstName $tenantLastName - $tenantPhoneNumber </p><br>";
 
+
+						//sending the text message
+						mail("2088908912@txt.att.net", "", $message, "From: Kaylie <thetwoers@gmail.com>\r\n");
 					}
 
 					

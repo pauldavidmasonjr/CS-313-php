@@ -28,20 +28,6 @@
 			<h2>Complex Name:<h2>
 				<input type="text" name="complexName"></input>
 
-			<h2>Street Address</h2>
-				<input type="text" name="streetAddress"></input>
-
-			<h2>City</h2>
-				<input type="text" name="city"></input>
-
-			<h2>State</h2>
-				<input type="text" name="state"></input>
-
-			<h2>Zip Code</h2>
-				<input type="text" name="zipCode"></input>
-
-			<h2>
-
 		<input type="submit" value="Create Complex">
 	</form>
 </body>

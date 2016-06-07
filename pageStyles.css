@@ -140,3 +140,16 @@ a:active{
 #Assignments313{
     text-align:center;
 }
+
+#schedule{
+  border="1"; 
+  width:100%; 
+  /*align: center;*/ 
+  padding-left: 5%; 
+  padding-right:5%; 
+  height:2px;
+}
+
+input{
+  text-align:center;
+}

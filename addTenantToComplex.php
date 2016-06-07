@@ -1,10 +1,6 @@
 <?php
-$dbHost = getenv('OPENSHIFT_MYSQL_DB_HOST'); 
-$dbPort = getenv('OPENSHIFT_MYSQL_DB_PORT'); 
-$dbUser = getenv('OPENSHIFT_MYSQL_DB_USERNAME'); 
-$dbPassword = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
 try{
-	$db = new PDO("mysql:host=$dbHost;dbname=managerapp", $dbUser, $dbPassword); 	
+	$db = new PDO("mysql:host=localhost;dbname=managerapp", 'kaylie_mason', 'manager1'); 	
 }
 catch (PDOException $ex){
 	echo 'Error!: ' . $ex->getMessage();
@@ -15,6 +11,7 @@ catch (PDOException $ex){
 <html>
 <head>
 	<title>Adding Tenants</title>
+	<link rel="stylesheet" type="text/css" href="pageStyles.css">
 </head>
 <body>
 	<h1>Add Tenant to your Complex Below</h1>
@@ -32,7 +29,10 @@ catch (PDOException $ex){
 			<p>Apartment Number:</p>
 			<input type="text" name="tenantApartmentNumber"></input>
 
-		<input type="submit" value="Add Tenant">
-	</form>
+			<br><br>
+			<input type="submit" value="Add Tenant">
+		</form>
+
+	<p><a href="managerAppMain.php">Return to main page</a></p>
 </body>
 </html>

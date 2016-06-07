@@ -18,15 +18,15 @@ catch (PDOException $ex){
 <body>
 	<?php
 		$firstName = $_POST['tenantFirstName'];
-		echo $firstName;
+		//echo $firstName;
 		$lastName = $_POST['tenantLastName'];
-		echo $lastName;
+		//echo $lastName;
 		$phoneNumber = $_POST['tenantPhoneNumber'];
-		echo $phoneNumber;
+		//echo $phoneNumber;
 		$email = $_POST['tenantEmailAddress'];
-		echo $email;
+		//echo $email;
 		$apartment = $_POST['tenantApartmentNumber'];
-		echo $apartment;
+		//echo $apartment;
 		$apartmentID;
 
 		//figure out which apartmetn id to add the tenant to
@@ -35,20 +35,23 @@ catch (PDOException $ex){
 
 				if($apartmentNumFromDatabase == $apartment){
 					$apartmentID = $row['id'];
-					echo "id placed - $apartmentID";
+					//echo "id placed - $apartmentID";
 				}
 			}
 		?>
 
 		<?php
-			$insertLine = $db->prepare("INSERT INTO tenant(first_name, last_name, phone_number, email_address, apartment_id) VALUES(:firstName, :lastName, :phoneNumber, :emailAddress)");
+			$insertLine = $db->prepare('INSERT INTO tenant(first_name, last_name, phone_number, email_address, 
+				apartment_id) VALUES(:firstName, :lastName, :phoneNumber, :emailAddress, :apartmentId)');
 			$insertLine->bindParam(':firstName', $firstName);
 			$insertLine->bindParam(':lastName', $lastName);
 			$insertLine->bindParam(':phoneNumber', $phoneNumber);
 			$insertLine->bindParam(':emailAddress', $email);
-			//$insertLine->bindParam(':apartmentId', $apartmentID);
+			$insertLine->bindParam(':apartmentId', $apartmentID);
 
 			$insertLine->execute();
+
+			header('Location: addTenantToComplex.php');
 		?>
 </body>
 </html>

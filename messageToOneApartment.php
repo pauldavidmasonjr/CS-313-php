@@ -14,7 +14,8 @@ catch (PDOException $ex){
 
 <html>
 <head>
-	<title>Entire Complex message</title>
+	<title>One Apartment Message</title>
+	<link rel="stylesheet" type="text/css" href="pageStyles.css">
 </head>
 <body>
 	<h1>Message sent to entire complex!</h1>
@@ -23,10 +24,10 @@ catch (PDOException $ex){
 	<?php
 
 	$message = $_POST['message'];
-	echo 'Your message: <br><br>' . $message . '<br><br>'; 
+	echo "<p style='text-align:center'>Your message: <br><br> $message </p><br>"; 
 
 	$apartmentNumber = $_POST['apartmentNumber'];
-	echo 'apartment number: ' . $floorNumber . '<br><br>';
+	echo "<p style='text-align:center'>apartment number: $apartmentNumber </p><br>";
 
 				foreach($db->query('SELECT id, apartment_number FROM apartment') as $row){ 
 					$apartmentNum = $row["apartment_number"];
@@ -41,7 +42,7 @@ catch (PDOException $ex){
 									$tenantLastName = $row["last_name"];
 									$tenantPhoneNumber = $row["phone_number"];
 
-									echo $tenantFirstName . ' ' . $tenantLastName . ' - ' . $tenantPhoneNumber . '<br>';
+									echo "<p style='text-align:center'>$tenantFirstName $tenantLastName - $tenantPhoneNumber </p>";
 								}
 							
 						}
